@@ -15,7 +15,7 @@ const handler =  NextAuth({
             await conectarDB()
             
             const existingUser = await User.findOne({email: credentials?.email}).select('+password')
-            if(!existingUser) throw new Error('Invalid credentials')
+            if(!existingUser) throw new Error('El email no existe')
             
             const passwordMatch = await bcrypt.compare(credentials!.password, existingUser.password)
             if(!passwordMatch) throw new Error("Invalid credentials")
@@ -33,6 +33,9 @@ const handler =  NextAuth({
       session.user = token.user as any;
       return session;
     }
+  },
+  pages: {
+    signIn:"/login",
   }
 })
 
