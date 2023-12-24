@@ -24,29 +24,31 @@ const LoginPage = () => {
   
   }
   return (
-    <form onSubmit={handleSubmit}>
-      {error && (
-        <div className='bg-red-500 text-white p-2 mb-2'>
-          <p>{error}</p>
-        </div>
-      )}
-      <h1>Sign in</h1>
-      <input 
-        type="email" 
-        name="email" 
-        placeholder="Ingresa tu correo" 
-        className='bg-zinc-900 px-4 py-2 block mb-2' 
-      />
-      <input 
-        type="password" 
-        name="password" 
-        placeholder="*****" 
-        className='bg-zinc-900 px-4 py-2 block mb-2' 
-      />
-      <button className='bg-indigo-600 px-4 py-2'>
-        Log in
-      </button>
-    </form>
+    <div className='flex justify-center items-center h-[calc(100vh-4rem)]'>
+      <form onSubmit={handleSubmit} className='bg-neutral-900 p-8 py-10 rounded w-1/4'>
+        {error && (
+          <div className='bg-red-500 text-white p-2 mb-2 rounded-md'>
+            <p>{error}</p>
+          </div>
+        )}
+        <h1 className='text-4xl font-bold mb-3'>Sign in</h1>
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Ingresa tu correo" 
+          className='bg-zinc-800 px-4 py-2 block mb-3 w-full rounded-md' 
+        />
+        <input 
+          type="password" 
+          name="password" 
+          placeholder="*****" 
+          className='bg-zinc-800 px-4 py-2 block mb-3 w-full rounded-md' 
+        />
+        <button className='bg-indigo-600 px-4 py-2 rounded-md'>
+          Log in
+        </button>
+      </form>
+    </div>
   );
 }
 
